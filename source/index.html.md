@@ -2,41 +2,99 @@
 title: qnyp API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - plaintext: GraphQL
+  - ruby: Ruby
+  - javascript: JavaScript
+  - shell: Shell
 
 includes:
-  - errors
+  - graphql_queries
+  - graphql_types
+
+toc_footers:
+ - <a href="./">APIリファレンス</a>
+ - <a href="./ruby.html">Rubyチュートリアル</a>
+ - <a href="./javascript.html">JavaScriptチュートリアル</a>
 
 search: false
 ---
 
-# Introduction
+# APIリファレンス
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+このページでは、qnyp APIの仕様について解説します。
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+qnyp APIを利用することで、qnypに登録されているオープンな情報を取得したり、ユーザーの代わりにアニメについての感想を投稿することができます。
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+<aside class="notice">
+qnyp APIはベータ版として提供されています。現時点では仕様の安定性や稼働率についての保証はありません。
+</aside>
 
-# Authentication
+各プログラミング言語用のチュートリアルは以下を参照してください。
 
-> To authorize, use this code:
+- [Ruby](ruby.html)
+- [JavaScript](javascript.html)
+
+# Overview (概要)
+
+## エンドポイント
+
+APIのエンドポイントは `api.qnyp.com/graphql` です。通信には常にHTTPSを利用します。
+
+## OAuth2
+
+権限の認可には [OAuth2](https://ja.wikipedia.org/wiki/OAuth) を利用します。
+
+以下の2種類の認可フロー(Grant Types)をサポートしています。
+
+- 認可コード (Authorization Code Grant Flow)
+  - オープンな情報の取得およびユーザーの認可を得た感想の投稿が可能
+- クライアントクレデンシャル (Client Credentials)
+  - オープンな情報の取得のみが可能
+
+## GraphQL
+
+APIへの問い合わせ言語として[GraphQL](http://graphql.org/)を利用します。
+
+### GraphQLクライアント
+- [GraphiQL.app](https://github.com/skevy/graphiql-app) - A light, Electron-based wrapper around GraphiQL
+- [GraphiQL](https://github.com/graphql/graphiql) - An in-browser IDE for exploring GraphQL
+
+### GraphQLクライアントライブラリ
+- [github/graphql-client](https://github.com/github/graphql-client) - Ruby
+- [Apollo Client](http://dev.apollodata.com/) - JavaScript
+
+この他のクライアントやライブラリについては
+[chentsulin/awesome\-graphql](https://github.com/chentsulin/awesome-graphql)
+を参照してください。
+
+# Errors (エラー)
+
+qnyp APIはエラーが発生した際に以下のステータスコードを返します。
+
+ステータスコード | 意味
+---------- | -------
+400 | Bad Request -- Your request sucks
+401 | Unauthorized -- Your API key is wrong
+403 | Forbidden -- The kitten requested is hidden for administrators only
+404 | Not Found -- The specified kitten could not be found
+405 | Method Not Allowed -- You tried to access a kitten with an invalid method
+406 | Not Acceptable -- You requested a format that isn't json
+429 | Too Many Requests -- You're requesting too many kittens! Slow down!
+500 | Internal Server Error -- We had a problem with our server. Try again later.
+503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+
+# Rate limiting (利用制限)
+
+(WIP)
+
+# Authorization (認可)
+
+> 認可を行うには以下のコードを使います:
 
 ```ruby
 require 'kittn'
 
 api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
 ```
 
 ```shell
@@ -62,126 +120,3 @@ Kittn expects for the API key to be included in all API requests to the server i
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
