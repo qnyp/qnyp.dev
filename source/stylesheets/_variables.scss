@@ -44,7 +44,7 @@ $nav-bg: $x-color-lightgrey !default;
 $examples-bg: $x-color-black-900 !default;
 $code-bg: $examples-bg !default;
 $code-annotation-bg: $examples-bg !default;
-$nav-subitem-bg: $x-background-color !default;
+$nav-subitem-bg: $nav-bg !default;
 $nav-active-bg: $x-primary-color !default;
 $lang-select-bg: $x-color-black !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
