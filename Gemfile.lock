@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/juno/rouge.git
+  revision: 71949198daacb68428402a4f8c8feb22cfaa0203
+  branch: graphql
+  specs:
+    rouge (2.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -93,7 +100,6 @@ GEM
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     redcarpet (3.4.0)
-    rouge (2.0.7)
     sass (3.4.23)
     servolux (0.12.0)
     sprockets (3.7.1)
@@ -116,7 +122,7 @@ DEPENDENCIES
   middleman-sprockets (~> 4.1.0)
   middleman-syntax (~> 3.0.0)
   redcarpet (~> 3.4.0)
-  rouge (~> 2.0.5)
+  rouge!
 
 BUNDLED WITH
-   1.14.3
+   1.14.6
