@@ -13,6 +13,7 @@ includes:
 
 toc_footers:
  - <a href="./">APIリファレンス</a>
+ - <a href="./graphql_schema/">GraphQL Schema</a>
  - <a href="./ruby.html">Rubyチュートリアル</a>
  - <a href="./javascript.html">JavaScriptチュートリアル</a>
 
