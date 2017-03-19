@@ -10,7 +10,7 @@ APIから情報を取得する場合は、GraphQLのクエリルートが持つ�
 
 ## タイトルの取得
 
-```plaintext
+```graphql
 query {
   title(id:3501) {
     id
@@ -19,10 +19,18 @@ query {
 }
 ```
 
+```shell
+$ curl https://api.qnyp.com/graphql \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ACCESS_TOKEN" \
+  -d '{ "query": "query getTitle { title(id:3501) { id name } }" }'
+```
+
 ```ruby
 module QnypTitle
   Query = QnypAPI::Client.parse <<-'GRAPHQL'
-    query {
+    query getTitle {
       title(id:3501) {
         id
         name

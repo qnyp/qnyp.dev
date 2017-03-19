@@ -2,7 +2,7 @@
 title: qnyp GraphQL API Reference
 
 language_tabs:
-  - plaintext: GraphQL
+  - graphql: GraphQL
   - ruby: Ruby
   - javascript: JavaScript
   - shell: Shell
