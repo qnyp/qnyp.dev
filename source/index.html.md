@@ -1,5 +1,5 @@
 ---
-title: qnyp API Reference
+title: qnyp GraphQL API Reference
 
 language_tabs:
   - plaintext: GraphQL
@@ -9,7 +9,6 @@ language_tabs:
 
 includes:
   - graphql_queries
-  - graphql_types
 
 toc_footers:
  - <a href="./">APIリファレンス</a>
@@ -22,12 +21,12 @@ search: false
 
 # APIリファレンス
 
-このページでは、qnyp APIの仕様について解説します。
+このページでは、qnyp GraphQL API(以下API)の仕様について解説します。
 
-qnyp APIを利用することで、qnypに登録されているオープンな情報を取得したり、ユーザーの代わりにアニメについての感想を投稿することができます。
+APIを利用することで、qnypに登録されているオープンな情報を取得したり、ユーザーとして感想を投稿することができます。
 
 <aside class="notice">
-qnyp APIはベータ版として提供されています。現時点では仕様の安定性や稼働率についての保証はありません。
+APIはベータ版として提供されています。現時点では仕様の安定性や稼働率についての保証はありません。
 </aside>
 
 各プログラミング言語用のチュートリアルは以下を参照してください。
@@ -35,32 +34,39 @@ qnyp APIはベータ版として提供されています。現時点では仕様
 - [Ruby](ruby.html)
 - [JavaScript](javascript.html)
 
-# Overview (概要)
 
-## エンドポイント
+# 1. Overview (概要)
 
-APIのエンドポイントは `api.qnyp.com/graphql` です。通信には常にHTTPSを利用します。
+APIはGraphQLをベースとしています。
+すべてのリクエストはエンドポイント `https://api.qnyp.com/graphql` に対して送信します。
 
-## OAuth2
+リクエストは`https`プロトコルを使ったセキュアなものである必要があります。
 
-権限の認可には [OAuth2](https://ja.wikipedia.org/wiki/OAuth) を利用します。
 
-以下の2種類の認可フロー(Grant Types)をサポートしています。
+# 2. Authorization (認可)
 
-- 認可コード (Authorization Code Grant Flow)
-  - オープンな情報の取得およびユーザーの認可を得た感想の投稿が可能
-- クライアントクレデンシャル (Client Credentials)
-  - オープンな情報の取得のみが可能
+APIを利用するにはアクセストークンが必ず必要となります。
 
-## GraphQL
+<aside class="notice">
+OAuth2によるアクセストークンの発行についても対応予定ですが、現時点では各ユーザーのアカウントに紐付いたものを設定ページにて生成する方式のみとなります。
+</aside>
 
-APIへの問い合わせ言語として[GraphQL](http://graphql.org/)を利用します。
+## 2.1. アクセストークンの生成
 
-### GraphQLクライアント
+qnypのユーザーは、[API関連の設定](https://qnyp.com/settings/api)ページにて自分のアカウントに紐づくアクセストークンを生成することができます。
+
+このアクセストークンを利用するにあたって有効期限はありませんが、ユーザーはいつでも設定ページから自分のアクセストークンを無効化することができます。
+
+
+# 3. GraphQL
+
+APIへの問い合わせには[GraphQL](http://graphql.org/)を利用します。
+
+## GraphQLクライアント
 - [GraphiQL.app](https://github.com/skevy/graphiql-app) - A light, Electron-based wrapper around GraphiQL
 - [GraphiQL](https://github.com/graphql/graphiql) - An in-browser IDE for exploring GraphQL
 
-### GraphQLクライアントライブラリ
+## GraphQLクライアントライブラリ
 - [github/graphql-client](https://github.com/github/graphql-client) - Ruby
 - [Apollo Client](http://dev.apollodata.com/) - JavaScript
 
@@ -68,56 +74,45 @@ APIへの問い合わせ言語として[GraphQL](http://graphql.org/)を利用�
 [chentsulin/awesome\-graphql](https://github.com/chentsulin/awesome-graphql)
 を参照してください。
 
-# Errors (エラー)
 
-qnyp APIはエラーが発生した際に以下のステータスコードを返します。
+# 4. Errors (エラー)
 
-ステータスコード | 意味
+APIは、エラーが発生した際に以下のステータスコードを返します。
+
+コード | 意味
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+400 | リクエスト内容が不正である
+401 | アクセストークンが無効である
+403 | アクセストークンがAPIリクエストに必要な権限を持っていない
+404 | 無効なエンドポイントをリクエストした
+405 | Method Not Allowed
+406 | Not Acceptable
+429 | リクエスト数が上限に達している
+500 | サーバー側でエラーが発生した
+503 | APIがメンテナンス中である
 
-# Rate limiting (利用制限)
 
-(WIP)
+# 5. Rate limiting (利用制限)
 
-# Authorization (認可)
+APIへのリクエスト数の上限は、アクセストークン毎に1時間あたり1,000回までとなっています。
 
-> 認可を行うには以下のコードを使います:
+リクエスト数の残数や回数がリセットされる日時などの情報は、APIのレスポンスに以下のような形で含まれています。
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```text
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: Tue, 14 Mar 2017 16:16:00 GMT
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+リクエスト数が上限に達した場合は、以下のようにステータスコード429のレスポンスが返されます。
+
+```text
+429 Too Many Requests
+
+Retry-After: 3600
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: Tue, 14 Mar 2017 16:16:00 GMT
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+`Retry-After`レスポンスヘッダには、回数がリセットされるまでの秒数が格納されています。

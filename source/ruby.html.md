@@ -4,11 +4,9 @@ title: qnyp API Ruby Tutorial
 language_tabs:
   - ruby: Ruby
 
-includes:
-  - graphql_types
-
 toc_footers:
  - <a href="./">APIリファレンス</a>
+ - <a href="./graphql_schema/">GraphQL Schema</a>
  - <a href="./ruby.html">Rubyチュートリアル</a>
  - <a href="./javascript.html">JavaScriptチュートリアル</a>
 
