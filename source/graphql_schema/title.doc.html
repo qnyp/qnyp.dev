@@ -73,11 +73,36 @@
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
+    <ul>
+        <li  title="Node">
+            <a href="node.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>Node</code>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
         <li  title="Episode">
             <a href="episode.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 <code>Episode</code>
+            </a>
+        </li>
+        <li  title="EpisodeConnection">
+            <a href="episodeconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>EpisodeConnection</code>
+            </a>
+        </li>
+        <li  title="EpisodeEdge">
+            <a href="episodeedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>EpisodeEdge</code>
+            </a>
+        </li>
+        <li  title="PageInfo">
+            <a href="pageinfo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>PageInfo</code>
             </a>
         </li>
         <li class="slds-is-active" title="Title">
@@ -156,7 +181,7 @@
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">GraphQL Schema definition</h3>
-<code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Title</span> {</li><li></li><li><span class="tab"><span class="comment line"># Episodes which belongs to the Title</span></span></li><li><span class="tab"><span class="meta">episodes</span>: [<a class="support type" href="episode.doc.html">Episode</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Identifier of the Title</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line"># Name of the Title</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+<code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Title</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="comment line">#   Episodes which belongs to the title</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: Returns the first _n_ elements from the list.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: Returns the elements in the list that come after the </span></span></li><li><span class="tab"><span class="comment line">#   specified global ID.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: Returns the last _n_ elements from the list.</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: Returns the elements in the list that come before the </span></span></li><li><span class="tab"><span class="comment line">#   specified global ID.</span></span></li><li><span class="tab"><span class="meta">episodes</span>(<li><span class="tab"><span class="comment line">#   Returns the first _n_ elements from the list.</span></span></li><li><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a></span></li>, <li><span class="tab"><span class="comment line">#   Returns the elements in the list that come after the specified global ID.</span></span></li><li><span class="tab"><span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a></span></li>, <li><span class="tab"><span class="comment line">#   Returns the last _n_ elements from the list.</span></span></li><li><span class="tab"><span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a></span></li>, <li><span class="tab"><span class="comment line">#   Returns the elements in the list that come before the specified global ID.</span></span></li><li><span class="tab"><span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a></span></li>): <a class="support type" href="episodeconnection.doc.html">EpisodeConnection</a> </span></li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   Name of the Title</span></span></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">Require by</h3>
@@ -165,7 +190,7 @@
     </main>
     <footer><div class="slds-col-rule--top slds-p-around--large slds-section-title--divider">
     <p class="slds-text-align--right">
-        <a href="https://github.com/2fd/graphdoc#readme">graphdoc 2.2.0</a>
+        <a href="https://github.com/2fd/graphdoc#readme">graphdoc 2.2.1</a>
     </p>
 </div>
 </footer>

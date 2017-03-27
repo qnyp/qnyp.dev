@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>skip</title>
+    <title>Node</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -75,7 +75,7 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
     <ul>
-        <li  title="Node">
+        <li class="slds-is-active" title="Node">
             <a href="node.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 <code>Node</code>
             </a>
@@ -155,7 +155,7 @@
                 <code>include</code>
             </a>
         </li>
-        <li class="slds-is-active" title="skip">
+        <li  title="skip">
             <a href="skip.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 <code>skip</code>
             </a>
@@ -175,17 +175,17 @@
             </div>
         </div>
 <section class="title">
-    <h1 class="slds-text-heading--large"><code>skip</code></h1>
-    <div class="gdoc-text--introduction slds-m-top--small slds-m-bottom--x-large"><p>Directs the executor to skip this field or fragment when the <code>if</code> argument is true.</p>
+    <h1 class="slds-text-heading--large"><code>Node</code></h1>
+    <div class="gdoc-text--introduction slds-m-top--small slds-m-bottom--x-large"><p>An object with an ID.</p>
 </div>
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">GraphQL Schema definition</h3>
-<code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">directive</span> <span class="keyword operator ts">@skip</span>(<li><span class="tab"><span class="comment line">#   Skipped when true.</span></span></li><li><span class="tab"><span class="meta">if</span>: <a class="support type" href="boolean.doc.html">Boolean</a>!</span></li>) on <span class="keyword operator ts">FIELD</span> | <span class="keyword operator ts">FRAGMENT_SPREAD</span> | <span class="keyword operator ts">INLINE_FRAGMENT</span></li></ul></code>
+<code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">interface</span> <span class="identifier">Node</span> {</li><li></li><li><span class="tab"><span class="comment line">#   ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li>}</li></ul></code>
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">Require by</h3>
-<div class="require-by anyone">This element is not required by anyone</div>
+<ul class="require-by"><li><a href="episode.doc.html" title="Episode - A episode of title">Episode<em>A episode of title</em></a><li><li><a href="query.doc.html" title="Query - The query root for this schema">Query<em>The query root for this schema</em></a><li><li><a href="title.doc.html" title="Title - A title">Title<em>A title</em></a><li></ul>
 </section>
     </main>
     <footer><div class="slds-col-rule--top slds-p-around--large slds-section-title--divider">

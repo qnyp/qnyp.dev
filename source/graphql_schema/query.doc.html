@@ -73,11 +73,36 @@
     </ul>
 </div>
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
+    <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
+    <ul>
+        <li  title="Node">
+            <a href="node.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>Node</code>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Objects</h4>
     <ul>
         <li  title="Episode">
             <a href="episode.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 <code>Episode</code>
+            </a>
+        </li>
+        <li  title="EpisodeConnection">
+            <a href="episodeconnection.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>EpisodeConnection</code>
+            </a>
+        </li>
+        <li  title="EpisodeEdge">
+            <a href="episodeedge.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>EpisodeEdge</code>
+            </a>
+        </li>
+        <li  title="PageInfo">
+            <a href="pageinfo.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                <code>PageInfo</code>
             </a>
         </li>
         <li  title="Title">
@@ -156,7 +181,7 @@
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">GraphQL Schema definition</h3>
-<code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line"># Find a Title by ID</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line"># <strong>id</strong>: [<strong>NULL</strong>]</span></span></li><li><span class="tab"><span class="meta">title</span>(<span class="variable parameter">id</span>: <a class="support type" href="id.doc.html">ID</a>!): <a class="support type" href="title.doc.html">Title</a> </span></li><li></li><li><span class="tab"><span class="comment line"># Search Title by keyword</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line"># <strong>keyword</strong>: [<strong>NULL</strong>]</span></span></li><li><span class="tab"><span class="meta">titles</span>(<span class="variable parameter">keyword</span>: <a class="support type" href="string.doc.html">String</a>): [<a class="support type" href="title.doc.html">Title</a>] </span></li><li>}</li></ul></code>
+<code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Query</span> {</li><li></li><li><span class="tab"><span class="comment line">#   Fetches an object given its ID.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: ID of the object.</span></span></li><li><span class="tab"><span class="meta">node</span>(<li><span class="tab"><span class="comment line">#   ID of the object.</span></span></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!</span></li>): <a class="support type" href="node.doc.html">Node</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Fetches a list of objects given a list of IDs.</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>ids</strong>: IDs of the objects.</span></span></li><li><span class="tab"><span class="meta">nodes</span>(<li><span class="tab"><span class="comment line">#   IDs of the objects.</span></span></li><li><span class="tab"><span class="meta">ids</span>: [<a class="support type" href="id.doc.html">ID</a>!]!</span></li>): [<a class="support type" href="node.doc.html">Node</a>]! </span></li><li></li><li><span class="tab"><span class="comment line">#   Find a Title by ID</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>id</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">title</span>(<li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>!</span></li>): <a class="support type" href="title.doc.html">Title</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   Search Title by keyword</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>keyword</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">titles</span>(<li><span class="tab"><span class="meta">keyword</span>: <a class="support type" href="string.doc.html">String</a></span></li>): [<a class="support type" href="title.doc.html">Title</a>] </span></li><li>}</li></ul></code>
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">Require by</h3>
@@ -165,7 +190,7 @@
     </main>
     <footer><div class="slds-col-rule--top slds-p-around--large slds-section-title--divider">
     <p class="slds-text-align--right">
-        <a href="https://github.com/2fd/graphdoc#readme">graphdoc 2.2.0</a>
+        <a href="https://github.com/2fd/graphdoc#readme">graphdoc 2.2.1</a>
     </p>
 </div>
 </footer>
