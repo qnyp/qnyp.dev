@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>Episode</title>
+    <title>Mutation</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -30,7 +30,7 @@
                 <code>Query</code>
             </a>
         </li>
-        <li  title="Mutation">
+        <li class="slds-is-active" title="Mutation">
             <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 <code>Mutation</code>
             </a>
@@ -150,7 +150,7 @@
                 <code>DeleteLogPayload</code>
             </a>
         </li>
-        <li class="slds-is-active" title="Episode">
+        <li  title="Episode">
             <a href="episode.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 <code>Episode</code>
             </a>
@@ -300,23 +300,17 @@
             </div>
         </div>
 <section class="title">
-    <h1 class="slds-text-heading--large"><code>Episode</code></h1>
-    <div class="gdoc-text--introduction slds-m-top--small slds-m-bottom--x-large"><p>   エピソード。</p>
-<p>   タイトルに紐づく各エピソードをあらわします。</p>
-<p>   映画などのTVシリーズではないタイトルの場合も、視聴ログを記録するための便宜上のエピソードが存在します。</p>
+    <h1 class="slds-text-heading--large"><code>Mutation</code></h1>
+    <div class="gdoc-text--introduction slds-m-top--small slds-m-bottom--x-large"><p>The root query for implementing GraphQL mutations.</p>
 </div>
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">GraphQL Schema definition</h3>
-<code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Episode</span> <span class="keyword operator ts">implements</span> <a class="support type" href="node.doc.html">Node</a> {</li><li></li><li><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   エピソードに対する視聴ログ。</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>first</strong>: リストの最初のn件を返す(1〜100)。</span></span></li><li><span class="tab"><span class="comment line">#   <strong>after</strong>: ここで指定したカーソルよりも後の要素を返す。</span></span></li><li><span class="tab"><span class="comment line">#   <strong>last</strong>: リストの最後のn件を返す(1〜100)。</span></span></li><li><span class="tab"><span class="comment line">#   <strong>before</strong>: ここで指定カーソルよりも前の要素を返す。</span></span></li><li><span class="tab"><span class="comment line">#   <strong>channels</strong>: 視聴ログを絞り込むための視聴媒体のリスト</span></span></li><li><span class="tab"><span class="comment line">#     </span></span></li><li><span class="tab"><span class="comment line">#   。</span></span></li><li><span class="tab"><span class="comment line">#   <strong>ratings</strong>: 視聴ログを絞り込むための評価のリスト。</span></span></li><li><span class="tab"><span class="meta">logs</span>(<li><span class="tab"><span class="comment line">#   リストの最初のn件を返す(1〜100)。</span></span></li><li><span class="tab"><span class="meta">first</span>: <a class="support type" href="int.doc.html">Int</a></span></li>, <li><span class="tab"><span class="comment line">#   ここで指定したカーソルよりも後の要素を返す。</span></span></li><li><span class="tab"><span class="meta">after</span>: <a class="support type" href="string.doc.html">String</a></span></li>, <li><span class="tab"><span class="comment line">#   リストの最後のn件を返す(1〜100)。</span></span></li><li><span class="tab"><span class="meta">last</span>: <a class="support type" href="int.doc.html">Int</a></span></li>, <li><span class="tab"><span class="comment line">#   ここで指定カーソルよりも前の要素を返す。</span></span></li><li><span class="tab"><span class="meta">before</span>: <a class="support type" href="string.doc.html">String</a></span></li>, <li><span class="tab"><span class="comment line">#   視聴ログを絞り込むための視聴媒体のリスト</span></span></li><li><span class="tab"><span class="comment line">#     </span></span></li><li><span class="tab"><span class="comment line">#   。</span></span></li><li><span class="tab"><span class="meta">channels</span>: [<a class="support type" href="channel.doc.html">Channel</a>]</span></li>, <li><span class="tab"><span class="comment line">#   視聴ログを絞り込むための評価のリスト。</span></span></li><li><span class="tab"><span class="meta">ratings</span>: [<a class="support type" href="rating.doc.html">Rating</a>]</span></li>): <a class="support type" href="logconnection.doc.html">LogConnection</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   データベースID。データベースにおけるプライマリキー。</span></span></li><li><span class="tab"><span class="meta">databaseId</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   識別子。同一タイトル内で各エピソードを識別するための一意な値。</span></span></li><li><span class="tab"><span class="meta">identifier</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   視聴ログ件数。エピソードに対する視聴ログの総数。</span></span></li><li><span class="tab"><span class="meta">logsCount</span>: <a class="support type" href="int.doc.html">Int</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   話数表記。話数の表記がない場合は null。</span></span></li><li><span class="tab"><span class="meta">numberText</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   スコア。視聴ログの評価をもとにしたスコア。</span></span></li><li><span class="tab"><span class="meta">score</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   あらすじURL。公式サイトのあらすじページのURL。</span></span></li><li><span class="tab"><span class="meta">storyUrl</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   サブタイトル。サブタイトルがない場合は null。</span></span></li><li><span class="tab"><span class="meta">subtitle</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   タイトル。</span></span></li><li><span class="tab"><span class="meta">title</span>: <a class="support type" href="title.doc.html">Title</a>! </span></li><li></li><li><span class="tab"><span class="comment line">#   エピソードのURL。</span></span></li><li><span class="tab"><span class="meta">url</span>: <a class="support type" href="string.doc.html">String</a>! </span></li><li>}</li></ul></code>
+<code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Mutation</span> {</li><li></li><li><span class="tab"><span class="comment line">#   視聴ログを作成します。</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: </span></span></li><li><span class="tab"><span class="meta">createLog</span>(<li><span class="tab"><span class="meta">input</span>: <a class="support type" href="createloginput.doc.html">CreateLogInput</a>!</span></li>): <a class="support type" href="createlogpayload.doc.html">CreateLogPayload</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   視聴ログを削除します。</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: </span></span></li><li><span class="tab"><span class="meta">deleteLog</span>(<li><span class="tab"><span class="meta">input</span>: <a class="support type" href="deleteloginput.doc.html">DeleteLogInput</a>!</span></li>): <a class="support type" href="deletelogpayload.doc.html">DeleteLogPayload</a> </span></li><li></li><li><span class="tab"><span class="comment line">#   視聴ログを更新します。</span></span></li><li><span class="tab"><span class="comment line"># </span></span></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>input</strong>: </span></span></li><li><span class="tab"><span class="meta">updateLog</span>(<li><span class="tab"><span class="meta">input</span>: <a class="support type" href="updateloginput.doc.html">UpdateLogInput</a>!</span></li>): <a class="support type" href="updatelogpayload.doc.html">UpdateLogPayload</a> </span></li><li>}</li></ul></code>
 </section>
 <section>
 <h2 class="slds-section__title slds-m-top--small">Require by</h3>
-<ul class="require-by"><li><a href="episodeedge.doc.html" title="EpisodeEdge - An edge in a connection.">EpisodeEdge<em>An edge in a connection.</em></a><li><li><a href="log.doc.html" title="Log -    視聴ログ。
-
-   エピソードに対するユーザーの視聴記録をあらわします。">Log<em>   視聴ログ。
-
-   エピソードに対するユーザーの視聴記録をあらわします。</em></a><li><li><a href="query.doc.html" title="Query - The query root of qnyp's GraphQL interface.">Query<em>The query root of qnyp's GraphQL interface.</em></a><li></ul>
+<div class="require-by anyone">This element is not required by anyone</div>
 </section>
     </main>
     <footer><div class="slds-col-rule--top slds-p-around--large slds-section-title--divider">
