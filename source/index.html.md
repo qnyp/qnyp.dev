@@ -10,6 +10,7 @@ includes:
 toc_footers:
  - <a href="https://graphql-explorer.qnyp.com/" target="_blank">GraphQL Explorer</a>
  - <a href="./graphql_schema/" target="_blank">GraphQL Schema document</a>
+ - Powered by <a href="https://github.com/tripit/slate" target="_blank">Slate</a>
 
 search: false
 ---
@@ -23,6 +24,8 @@ APIを利用すると、qnypに登録されている情報を取得したり、�
 <aside class="notice">
 このAPIはベータ版です。現時点では仕様の安定性や稼働率についての保証はありません。
 </aside>
+
+APIの利用に関する質問や要望は <a href="https://github.com/qnyp/developer.qnyp.com">qnyp/developer.qnyp.com</a> の Issues までどうぞ。
 
 
 # 1. Overview
