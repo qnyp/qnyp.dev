@@ -8,7 +8,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    autoprefixer-rails (7.1.2)
+    autoprefixer-rails (7.1.2.1)
       execjs
     backports (3.8.0)
     coffee-script (2.4.1)
@@ -94,7 +94,7 @@ GEM
       ffi (>= 0.5.0, < 2)
     redcarpet (3.4.0)
     rouge (2.1.1)
-    sass (3.4.24)
+    sass (3.4.25)
     servolux (0.13.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
