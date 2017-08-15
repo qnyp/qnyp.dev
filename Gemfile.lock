@@ -8,7 +8,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    autoprefixer-rails (7.1.2.4)
+    autoprefixer-rails (7.1.2.6)
       execjs
     backports (3.8.0)
     coffee-script (2.4.1)
@@ -93,7 +93,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redcarpet (3.4.0)
-    rouge (2.1.1)
+    rouge (2.2.0)
     sass (3.4.25)
     servolux (0.13.0)
     sprockets (3.7.1)
@@ -117,8 +117,8 @@ DEPENDENCIES
   middleman-sprockets (~> 4.1.0)
   middleman-syntax (~> 3.0.0)
   redcarpet (~> 3.4.0)
-  rouge (~> 2.1.0)
+  rouge (~> 2.2.0)
 
 
 BUNDLED WITH
-   1.15.1
+   1.15.3
