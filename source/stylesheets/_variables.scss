@@ -46,6 +46,8 @@ $code-bg: $examples-bg !default;
 $code-annotation-bg: $examples-bg !default;
 $nav-subitem-bg: $nav-bg !default;
 $nav-active-bg: $x-primary-color !default;
+$nav-active-parent-bg: #1E2224 !default; // parent links of the current section
+$lang-select-border: #000 !default;
 $lang-select-bg: $x-color-black !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: $lang-select-bg !default; // color of language tab bg when mouse is pressed
@@ -61,6 +63,7 @@ $search-notice-bg: #c97a7e !default;
 $main-text: $x-foreground-color !default; // main content text color
 $nav-text: $x-primary-color !default;
 $nav-active-text: $x-color-white !default;
+$nav-active-parent-text: $x-color-white !default; // parent links of the current section
 $lang-select-text: #fff !default; // color of unselected language tab text
 $lang-select-active-text: #fff !default; // color of selected language tab text
 $lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
@@ -102,9 +105,6 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 // OTHER
 ////////////////////
 $nav-footer-border-color: #666 !default;
-$nav-embossed-border-top: #000 !default;
-$nav-embossed-border-bottom: #939393 !default;
-$main-embossed-text-shadow: 0px 1px 0px #fff !default;
 $search-box-border-color: #666 !default;
 
 
