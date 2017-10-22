@@ -8,9 +8,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (7.1.5)
+    autoprefixer-rails (7.1.6)
       execjs
-    backports (3.9.1)
+    backports (3.10.3)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -25,7 +25,7 @@ GEM
     fast_blank (1.0.0)
     fastimage (2.1.0)
     ffi (1.9.18)
-    haml (5.0.3)
+    haml (5.0.4)
       temple (>= 0.8.0)
       tilt
     hamster (3.0.0)
