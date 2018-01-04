@@ -8,9 +8,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (7.2.3)
+    autoprefixer-rails (7.2.4)
       execjs
-    backports (3.10.3)
+    backports (3.11.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -80,7 +80,7 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 2.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.1)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     padrino-helpers (0.13.3.4)
