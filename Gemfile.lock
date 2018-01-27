@@ -80,7 +80,7 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 2.0)
     mini_portile2 (2.3.0)
-    minitest (5.11.2)
+    minitest (5.11.3)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     padrino-helpers (0.13.3.4)
