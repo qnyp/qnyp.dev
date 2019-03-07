@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/juno/autoprefixer-rails.git
+  revision: 1dcb62cf762c1a593bc03cb9c9e42b7f2bd600ae
+  branch: fix-rails-detection-logic
+  specs:
+    autoprefixer-rails (9.4.10)
+      execjs
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -8,8 +16,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    autoprefixer-rails (9.4.10)
-      execjs
     backports (3.12.0)
     coffee-script (2.4.1)
       coffee-script-source
@@ -115,6 +121,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails!
   middleman (~> 4.2.1)
   middleman-autoprefixer (~> 2.10.0)
   middleman-sprockets (~> 4.1.0)
