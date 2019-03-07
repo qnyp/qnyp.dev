@@ -1,8 +1,8 @@
 # qnyp API
 
-- [APIリファレンス](http://developer.qnyp.com/)
+- [APIリファレンス](http://qnyp.dev/)
 - [GraphQL Explorer](https://graphql-explorer.qnyp.com/)
-- [Platform Roadmap](https://github.com/qnyp/developer.qnyp.com/projects/1)
+- [Platform Roadmap](https://github.com/qnyp/qnyp.dev/projects/1)
 
 APIへのアクセスやGraphQLの挙動について質問や要望がある際は Issues にてお知らせください。
 

@@ -25,7 +25,7 @@ APIを利用すると、qnypに登録されている情報を取得したり、�
 このAPIはベータ版です。現時点では仕様の安定性や稼働率についての保証はありません。
 </aside>
 
-APIの利用に関する質問や要望は <a href="https://github.com/qnyp/developer.qnyp.com">qnyp/developer.qnyp.com</a> の Issues までどうぞ。
+APIの利用に関する質問や要望は <a href="https://github.com/qnyp/qnyp.dev">qnyp/qnyp.dev</a> の Issues までどうぞ。
 
 
 # 1. Overview
