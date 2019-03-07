@@ -11,6 +11,3 @@ gem 'rouge', '~> 2.2.0'
 gem 'redcarpet', '~> 3.4.0'
 gem 'nokogiri', '>= 1.8.1'
 
-# Workaround for bug
-gem 'autoprefixer-rails', github: 'juno/autoprefixer-rails', branch: 'fix-rails-detection-logic'
-
