@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.6.1'
 
 # Middleman
-gem 'middleman', '~>4.2.1'
+gem 'middleman', '~>4.3.3'
 gem 'middleman-syntax', '~> 3.0.0'
 gem 'middleman-autoprefixer', '~> 2.10.1'
 gem "middleman-sprockets", "~> 4.1.0"
