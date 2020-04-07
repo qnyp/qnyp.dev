@@ -84,7 +84,7 @@ GEM
     padrino-support (0.13.3.4)
       activesupport (>= 3.1)
     parallel (1.19.1)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     rack (2.2.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
