@@ -6,27 +6,7 @@ updates:
     interval: monthly
     time: "06:00"
     timezone: Asia/Tokyo
-  open-pull-requests-limit: 10
   reviewers:
   - juno
   labels:
   - dependencies
-  allow:
-  - dependency-type: direct
-  - dependency-type: indirect
-  ignore:
-  - dependency-name: activesupport
-    versions:
-    - 5.2.4.4
-    - 5.2.4.5
-  - dependency-name: backports
-    versions:
-    - 3.20.0
-    - 3.20.2
-  - dependency-name: minitest
-    versions:
-    - 5.14.2
-    - 5.14.3
-  - dependency-name: concurrent-ruby
-    versions:
-    - 1.1.7
